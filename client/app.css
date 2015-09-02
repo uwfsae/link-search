@@ -3,13 +3,6 @@ body {
 }
 input {
   border-radius: 0 !important;
-  width: 100%;
-}
-.container {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
 }
 h1 {
   font-weight: 400 !important;
@@ -28,12 +21,6 @@ h1, h4 {
   margin: 3em 0 1.5em 0;
 }
 
-.del {
-  float: right;
-  font-size: 8pt;
-  color: #999;
-}
-
 #insertLinkForm input {
   border-radius: 0 !important;
 }
@@ -42,16 +29,10 @@ h1, h4 {
   margin: 1em 0 3em 0;
 }
 
-#search-meta {
-  font-size: 13px;
-  color: #666;
-  height: 15px;
-}
-
 .result {
   width: 100%;
   border-bottom: 1px solid #eee;
-  padding: 8px 0;
+  padding: .7em 0;
 }
 
 .result .name {

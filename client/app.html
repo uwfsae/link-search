@@ -3,7 +3,7 @@
 </body>
 
 <template name="Home">
-  <div class="container">
+  <div class="ui text container">
     <div id="heading">
       <h1>UW FSAE Quick Links</h1>
       <p>
@@ -25,11 +25,6 @@
 
 <template name="searchResults">
   <div id='search-result'>
-    <!--<div id="search-meta">-->
-    <!--  {{#if isLoading}}-->
-    <!--    searching ...-->
-    <!--  {{/if}}-->
-    <!--</div>-->
 
     {{#each getLinks}}
       {{> searchResult }}
