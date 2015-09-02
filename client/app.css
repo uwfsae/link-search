@@ -7,6 +7,9 @@ input {
 h1 {
   font-weight: 400 !important;
 }
+a:hover {
+  text-decoration: underline;
+}
 h1, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
