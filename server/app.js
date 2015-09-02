@@ -1,7 +1,7 @@
 
 
 SearchSource.defineSource('links', function(searchText, options) {
-  var options = {sort: {_name: -1}, limit: 20};
+  var options = {sort: {_name: 1}, limit: 20};
 
   if(searchText) {
     var regExp = buildRegExp(searchText);
