@@ -17,11 +17,10 @@
   </div>
 </template>
 <template name="searchBox">
-  <div class="ui icon input large{{#if isLoading}} loading {{/if}}">
+  <div class="ui icon fluid input large{{#if isLoading}} loading {{/if}}">
     <input type="text" id="search-box" placeholder="Search links..." autofocus>
-    <i class="search icon"></i>
+    <i class="searchRemove remove icon" style="display: none;"></i>
   </div>
-  <div class="results"></div>
 </template>
 
 <template name="searchResults">

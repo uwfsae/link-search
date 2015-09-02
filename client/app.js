@@ -40,5 +40,14 @@ Template.searchBox.events({
   "keyup #search-box": _.throttle(function(e) {
     var text = $(e.target).val().trim();
     LinkSearch.search(text);
-  }, 200)
+    if (text.length > 0) {
+      $('.searchRemove').show();
+    } else {
+      $('.searchRemove').hide();
+    }
+  }, 200),
+  "click .searchRemove": function(e) {
+    $(e.target).hide();
+    $('#search-box').val('').focus().trigger('keyup');
+  }
 });
