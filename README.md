@@ -1,3 +1,9 @@
+# Accessing link editing
+Account Name: uwfsae
+password: team password
+
+# Previous Documentation #
+
 ## Demo Meteor app with an Instant Search Solution
 
 This app is built using [Search Source](https://github.com/meteorhacks/search-source) package. You can learn how we built this with the following article.
