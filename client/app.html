@@ -1,38 +1,50 @@
 <body>
+
+</body>
+
+<template name="Home">
   <div class="container">
     <div id="heading">
-      <h1>Meteor Package Search</h1>
+      <h1>UW FSAE Quick Links</h1>
       <p>
-        <a target="_blank" href="https://meteorhacks.com/implementing-an-instant-search-solution-with-meteor.html">How This Works</a> | 
-        <a target="_blank" href="https://github.com/meteorhacks-samples/meteor-instant-search-demo">Source Code</a>
+        <a href="https://bitbucket.org/uwfsae/links">Source code</a> |
+        <a href="/admin">Add links</a>
       </p>
     </div>
     {{> searchBox }}
-    {{> searchResult}}
-  </div>
-</body>
+    {{> searchResults }}
 
+  </div>
+</template>
 <template name="searchBox">
-  <input type="text" id="search-box" placeholder="search packages here" />
+  <div class="ui icon input large{{#if isLoading}} loading {{/if}}">
+    <input type="text" id="search-box" placeholder="Search links..." autofocus>
+    <i class="search icon"></i>
+  </div>
+  <div class="results"></div>
+</template>
+
+<template name="searchResults">
+  <div id='search-result'>
+    <!--<div id="search-meta">-->
+    <!--  {{#if isLoading}}-->
+    <!--    searching ...-->
+    <!--  {{/if}}-->
+    <!--</div>-->
+
+    {{#each getLinks}}
+      {{> searchResult }}
+    {{/each}}
+  </div>
 </template>
 
 <template name="searchResult">
-  <div id='search-result'>
-    <div id="search-meta">
-      {{#if isLoading}}
-        searching ...
-      {{/if}}
+  <div class="result">
+    <h4 class="name">
+      <a href="{{url}}" target="_blank">{{{_name}}}</a>
+    </h4>
+    <div class="description">
+      {{{description}}}
     </div>
-
-    {{#each getPackages}}
-    <div class="package">
-      <h4 class="name">
-        <a href="{{git}}" target="_blank">{{{packageName}}}</a>
-      </h4>
-      <div class="description">
-        {{{description}}}
-      </div>
-    </div>
-    {{/each}}
   </div>
 </template>

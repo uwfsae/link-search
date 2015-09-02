@@ -1,16 +1,16 @@
-var packagesDump = Assets.getText('packages.dump').split('\n').filter(function(p) {
+var linksDump = Assets.getText('links.dump').split('\n').filter(function(p) {
   return !!p;
 });
 
-if(Packages.find().count() < packagesDump.length) {
-  console.log("adding initial set of packages (%s)", packagesDump.length);
-  for(var lc=0; lc<packagesDump.length; lc++) {
+if(Links.find().count() < linksDump.length) {
+  console.log("adding initial set of links (%s)", linksDump.length);
+  for(var lc=0; lc<linksDump.length; lc++) {
     if(lc > 0 && lc % 500 == 0) {
-      console.log("  added packages: ", lc);
+      console.log("  added links: ", lc);
     }
-    var p = packagesDump[lc];
+    var p = linksDump[lc];
     p = EJSON.parse(p);
-    SavePackage(p.packageName, p);
+    SaveLink(p._name, p);
   };
   console.log("completed!");
 }

@@ -1,16 +1,16 @@
-SearchSource.defineSource('packages', function(searchText, options) {
-  var options = {sort: {isoScore: -1}, limit: 20};
-  
+SearchSource.defineSource('links', function(searchText, options) {
+  var options = {sort: {_name: -1}, limit: 20};
+
   if(searchText) {
     var regExp = buildRegExp(searchText);
     var selector = {$or: [
-      {packageName: regExp},
+      {_name: regExp},
       {description: regExp}
     ]};
 
-    return Packages.find(selector, options).fetch();
+    return Links.find(selector, options).fetch();
   } else {
-    return Packages.find({}, options).fetch();
+    return Links.find({}, options).fetch();
   }
 });
 

@@ -2,32 +2,43 @@ var options = {
   keepHistory: 1000 * 60 * 5,
   localSearch: true
 };
-var fields = ['packageName', 'description'];
+AutoForm.setDefaultTemplateForType('quickForm', 'plain-fieldset');
 
-PackageSearch = new SearchSource('packages', fields, options);
+var fields = ['_name', 'description'];
 
-Template.searchResult.helpers({
-  getPackages: function() {
-    return PackageSearch.getData({
+LinkSearch = new SearchSource('links', fields, options);
+
+Template.searchResults.helpers({
+  getLinks: function() {
+    return LinkSearch.getData({
       transform: function(matchText, regExp) {
         return matchText.replace(regExp, "<b>$&</b>")
       },
-      sort: {isoScore: -1}
+      sort: {_name: -1}
     });
   },
-  
+
+});
+Template.searchBox.helpers({
   isLoading: function() {
-    return PackageSearch.getStatus().loading;
+    return LinkSearch.getStatus().loading;
   }
 });
 
-Template.searchResult.rendered = function() {
-  PackageSearch.search('');
+Template.searchResult.events({
+    'click .del': _.throttle(function(e){
+      Links.remove({_id: this._id});
+    }, 200)
+
+});
+
+Template.searchResults.rendered = function() {
+  LinkSearch.search('');
 };
 
 Template.searchBox.events({
   "keyup #search-box": _.throttle(function(e) {
     var text = $(e.target).val().trim();
-    PackageSearch.search(text);
+    LinkSearch.search(text);
   }, 200)
 });
