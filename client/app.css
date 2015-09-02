@@ -13,8 +13,11 @@ a:hover {
 h1, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-a.add, a.searchlink {
+a.green {
   color: #21ba45 !important;
+}
+a.orange {
+  color: #f26202 !important;
 }
 .hidden {
   display: none;
