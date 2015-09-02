@@ -14,7 +14,7 @@ Template.searchResults.helpers({
       transform: function(matchText, regExp) {
         return matchText.replace(regExp, "<b>$&</b>")
       },
-      sort: {_name: -1}
+      sort: {_name: 1}
     });
   },
 

@@ -1,5 +1,3 @@
-
-
 SearchSource.defineSource('links', function(searchText, options) {
   var options = {sort: {_name: 1}, limit: 20};
 
