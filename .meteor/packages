@@ -13,3 +13,5 @@ insecure
 houston:admin
 iron:router
 semantic:ui-css
+accounts-password
+accounts-ui

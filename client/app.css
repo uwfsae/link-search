@@ -31,7 +31,7 @@ h1, h4 {
 
 .result {
   width: 100%;
-  border-bottom: 1px solid #eee;
+  border-bottom: .08em solid #eee;
   padding: .7em 0;
 }
 
