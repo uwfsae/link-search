@@ -8,7 +8,7 @@
       <h1>UW FSAE Go Links</h1>
       <p>
         <a href="https://bitbucket.org/uwfsae/links">Source code</a> |
-        <a href="/add">Add links</a>
+        <a href="/add" class="add">Add links</a>
       </p>
     </div>
     {{> searchBox }}
@@ -33,6 +33,10 @@
       {{> afQuickField name='url' }}
       <button type="submit" class="ui button">Insert</button>
     {{/autoForm}}
+    <div class="ui divider"></div>
+    <div class="ui small message">
+    Only share password protected or public resources. i.e, <strong>do not post links containing a secret hash</strong> such as google drive document share links.
+    </div>
   </div>
 </template>
 

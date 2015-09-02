@@ -13,6 +13,9 @@ a:hover {
 h1, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+a.add {
+  color: #21ba45 !important;
+}
 .hidden {
   display: none;
 }
