@@ -8,16 +8,17 @@ var fields = ['_name', 'description'];
 
 LinkSearch = new SearchSource('links', fields, options);
 
-Template.searchResults.helpers({
-  getLinks: function() {
-    return LinkSearch.getData({
-      transform: function(matchText, regExp) {
-        return matchText.replace(regExp, "<b>$&</b>")
-      },
-      sort: {_name: 1}
-    });
-  },
+function getLinks () {
+  return LinkSearch.getData({
+    transform: function(matchText, regExp) {
+      return matchText.replace(regExp, "<b>$&</b>")
+    },
+    sort: {_name: 1}
+  });
+}
 
+Template.searchResults.helpers({
+  getLinks: getLinks,
 });
 Template.searchBox.helpers({
   isLoading: function() {
@@ -38,8 +39,21 @@ Template.searchResults.rendered = function() {
 
 Template.searchBox.events({
   "keyup #search-box": _.throttle(function(e) {
+
+    // If enter was pressed, navigate to the first link
+    if (e.which === 13) {
+      var data = getLinks();
+      if (data.length > 0) {
+        window.location.href = data[0].url;
+      }
+    }
+
     var text = $(e.target).val().trim();
+
+    // Perform Search
     LinkSearch.search(text);
+
+    // Update clear X
     if (text.length > 0) {
       $('.searchRemove').show();
     } else {
