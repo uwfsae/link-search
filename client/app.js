@@ -1,6 +1,6 @@
 var options = {
-  keepHistory: 1000 * 60 * 5,
-  localSearch: true
+  keepHistory: 1000 * 60, // 1 minute
+  localSearch: false
 };
 AutoForm.setDefaultTemplateForType('quickForm', 'plain-fieldset');
 

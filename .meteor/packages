@@ -9,7 +9,6 @@ meteorhacks:search-source
 twbs:bootstrap
 aldeed:collection2
 aldeed:autoform
-insecure
 houston:admin
 iron:router
 semantic:ui-css

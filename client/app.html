@@ -8,14 +8,34 @@
       <h1>UW FSAE Quick Links</h1>
       <p>
         <a href="https://bitbucket.org/uwfsae/links">Source code</a> |
-        <a href="/admin">Add links</a>
+        <a href="/add">Add links</a>
       </p>
     </div>
     {{> searchBox }}
     {{> searchResults }}
-
   </div>
 </template>
+
+<template name="Add">
+  <div class="ui text container">
+    <div id="heading">
+      <h1>UW FSAE Quick Links</h1>
+      <p>
+        <a href="https://bitbucket.org/uwfsae/links">Source code</a> |
+        <a href="/admin">Admin panel</a> |
+        <a href="/" class="searchlink">Back to search</a>
+      </p>
+    </div>
+
+    {{#autoForm collection="Links" id="insertLinkForm" class="ui form" type="insert"}}
+      {{> afQuickField name='_name' }}
+      {{> afQuickField name='description' }}
+      {{> afQuickField name='url' }}
+      <button type="submit" class="ui button">Insert</button>
+    {{/autoForm}}
+  </div>
+</template>
+
 <template name="searchBox">
   <div class="ui icon fluid input large{{#if isLoading}} loading {{/if}}">
     <input type="text" id="search-box" placeholder="Search links..." autofocus>
