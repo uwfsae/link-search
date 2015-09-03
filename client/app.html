@@ -3,14 +3,11 @@
   <title>UW FSAE Go Links</title>
 </head>
 
-<body>
-
-</body>
-
+<body></body>
 
 <template name="Layout">
   <div class="ui text container">
-    <h1 class="ui header" id="heading">UW FSAE Go Links</h1>
+    <h1 class="ui header" id="heading">{{AppName}}</h1>
     {{> yield}}
   </div>
 </template>
@@ -33,11 +30,18 @@
 
   <div class="ui divider"></div>
 
-  {{#autoForm collection="Links" id="insertLinkForm" class="ui form" type="insert"}}
-    {{> afQuickField name='_name' }}
-    {{> afQuickField name='description' }}
-    {{> afQuickField name='url' }}
-    <button type="submit" class="ui button">Insert</button>
+  {{#autoForm collection="Links" id="insertLinkForm" class="ui large form"
+    type="insert" template="plain"}}
+    <div class="field">
+      {{> afFieldInput type="text" name='_name' placeholder="schemaLabel" autofocus=''}}
+    </div>
+    <div class="field">
+      {{> afFieldInput type="text"  name='description' placeholder="schemaLabel"}}
+    </div>
+    <div class="field">
+      {{> afFieldInput type="text"  name='url' placeholder="schemaLabel"}}
+    </div>
+    <button type="submit" class="ui large submit button">Add</button>
   {{/autoForm}}
 
   <div class="ui divider"></div>
@@ -66,7 +70,7 @@
 <template name="searchResult">
   <div class="result">
     <h4 class="name">
-      <a href="{{url}}" target="_blank">{{{_name}}}</a>
+      <a href="{{url}}">{{{_name}}}</a>
     </h4>
     <div class="description">
       {{{description}}}

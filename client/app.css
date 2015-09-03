@@ -1,4 +1,9 @@
-body {
+@media only screen and (max-width: 768px) {
+  #heading {
+    margin-top: .7em;
+  }
+}
+body, h1, h1.ui.header, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 input {
@@ -9,9 +14,6 @@ h1 {
 }
 a:hover {
   text-decoration: underline;
-}
-h1, h1.ui.header, h4 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 a.green {
   color: #21ba45 !important;
@@ -25,12 +27,6 @@ a.orange {
 }
 #heading {
   margin-top: 1.7em;
-}
-
-@media only screen and (max-width: 768px) {
-  #heading {
-    margin-top: .7em;
-  }
 }
 
 p.nav-links {

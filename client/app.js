@@ -1,51 +1,47 @@
+/** Constants **/
+AppName = "UW FSAE Go Links";
+
+/** Setup **/
 var options = {
   keepHistory: 1000 * 60, // 1 minute
   localSearch: false
 };
-AutoForm.setDefaultTemplateForType('quickForm', 'plain-fieldset');
 
 var fields = ['_name', 'description'];
 
 LinkSearch = new SearchSource('links', fields, options);
 
-function getLinks () {
-  return LinkSearch.getData({
-    transform: function(matchText, regExp) {
-      return matchText.replace(regExp, "<b>$&</b>")
-    },
-    sort: {_name: 1}
-  });
+/** Global Helpers **/
+Template.registerHelper("AppName", function () {
+    return AppName;
+});
+
+Template.Home.rendered = Template.Add.rendered = function () {
+  $('input').first().focus();
 }
 
+/** searchResult **/
 Template.searchResults.helpers({
-  getLinks: getLinks,
-});
-Template.searchBox.helpers({
-  isLoading: function() {
-    return LinkSearch.getStatus().loading;
-  }
-});
-
-Template.searchResult.events({
-    'click .del': _.throttle(function(e){
-      Links.remove({_id: this._id});
-    }, 200)
-
+  getLinks: GetLinks,
 });
 
 Template.searchResults.rendered = function() {
   LinkSearch.search('');
 };
 
+/** Search Box **/
+Template.searchBox.helpers({
+  isLoading: function() {
+    return LinkSearch.getStatus().loading;
+  }
+});
+
 Template.searchBox.events({
   "keyup #search-box": _.throttle(function(e) {
 
     // If enter was pressed, navigate to the first link
     if (e.which === 13) {
-      var data = getLinks();
-      if (data.length > 0) {
-        window.location.href = data[0].url;
-      }
+      document.querySelector('.result a').click();
     }
 
     var text = $(e.target).val().trim();

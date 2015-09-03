@@ -1,3 +1,5 @@
+// Prepopulate the database if the database is empty.
+
 var linksDump = Assets.getText('links.dump').split('\n').filter(function(p) {
   return !!p;
 });
