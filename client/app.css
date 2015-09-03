@@ -10,7 +10,7 @@ h1 {
 a:hover {
   text-decoration: underline;
 }
-h1, h4 {
+h1, h1.ui.header, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 a.green {
@@ -27,7 +27,10 @@ a.orange {
   cursor: pointer !important;
 }
 #heading {
-  margin: 3em 0 1.5em 0;
+  margin-top: 1.7em;
+}
+p.nav-links {
+  margin-bottom: 1.5em;
 }
 
 #insertLinkForm input {

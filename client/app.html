@@ -2,45 +2,41 @@
 
 </body>
 
+<template name="Layout">
+   <div class="ui text container">
+      <h1 class="ui header" id="heading">UW FSAE Go Links</h1>
+      {{> yield}}
+    </div>
+</template>
+
 <template name="title">
-  <h1>UW FSAE Go Links</h1>
 </template>
 
 <template name="Home">
-  <div class="ui text container">
-    <div id="heading">
-      {{> title }}
-      <p>
-        <a href="https://bitbucket.org/uwfsae/links">Source code</a> |
-        <a href="/add" class="green">Add links</a>
-      </p>
-    </div>
-    {{> searchBox }}
-    {{> searchResults }}
-  </div>
+  <p class="nav-links">
+    <a href="https://bitbucket.org/uwfsae/links">Source code</a> |
+    <a href="/add" class="green">Add links</a>
+  </p>
+  {{> searchBox }}
+  {{> searchResults }}
 </template>
 
 <template name="Add">
-  <div class="ui text container">
-    <div id="heading">
-      {{> title }}
-      <p>
-        <a href="https://bitbucket.org/uwfsae/links">Source code</a> |
-        <a href="/" class="green">Back to search</a> |
-        <a href="/admin" class="orange">Modify links</a>
-      </p>
-    </div>
+  <p class="nav-links">
+    <a href="https://bitbucket.org/uwfsae/links">Source code</a> |
+    <a href="/" class="green">Back to search</a> |
+    <a href="/admin" class="orange">Modify links</a>
+  </p>
 
-    {{#autoForm collection="Links" id="insertLinkForm" class="ui form" type="insert"}}
-      {{> afQuickField name='_name' }}
-      {{> afQuickField name='description' }}
-      {{> afQuickField name='url' }}
-      <button type="submit" class="ui button">Insert</button>
-    {{/autoForm}}
-    <div class="ui divider"></div>
-    <div class="ui small message">
-    Only share password protected or public resources. i.e, <strong>do not post links containing a secret hash</strong> such as google drive document share links.
-    </div>
+  {{#autoForm collection="Links" id="insertLinkForm" class="ui form" type="insert"}}
+    {{> afQuickField name='_name' }}
+    {{> afQuickField name='description' }}
+    {{> afQuickField name='url' }}
+    <button type="submit" class="ui button">Insert</button>
+  {{/autoForm}}
+  <div class="ui divider"></div>
+  <div class="ui small message">
+  Only share password protected or public resources. i.e, <strong>do not post links containing a secret hash</strong> such as google drive document share links.
   </div>
 </template>
 
