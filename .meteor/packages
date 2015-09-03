@@ -11,6 +11,6 @@ aldeed:collection2
 aldeed:autoform
 houston:admin
 iron:router
-semantic:ui-css
 accounts-password
 accounts-ui
+semantic:ui-css

@@ -1,15 +1,18 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UW FSAE Go Links</title>
+</head>
+
 <body>
 
 </body>
 
-<template name="Layout">
-   <div class="ui text container">
-      <h1 class="ui header" id="heading">UW FSAE Go Links</h1>
-      {{> yield}}
-    </div>
-</template>
 
-<template name="title">
+<template name="Layout">
+  <div class="ui text container">
+    <h1 class="ui header" id="heading">UW FSAE Go Links</h1>
+    {{> yield}}
+  </div>
 </template>
 
 <template name="Home">
@@ -28,13 +31,15 @@
     <a href="/admin" class="orange">Modify links</a>
   </p>
 
+  <div class="ui divider"></div>
+
   {{#autoForm collection="Links" id="insertLinkForm" class="ui form" type="insert"}}
     {{> afQuickField name='_name' }}
     {{> afQuickField name='description' }}
     {{> afQuickField name='url' }}
     <button type="submit" class="ui button">Insert</button>
   {{/autoForm}}
-  <div class="ui divider"></div>
+
   <div class="ui small message">
   Only share password protected or public resources. i.e, <strong>do not post links containing a secret hash</strong> such as google drive document share links.
   </div>

@@ -19,9 +19,6 @@ a.green {
 a.orange {
   color: #f26202 !important;
 }
-.hidden {
-  display: none;
-}
 .searchRemove {
   pointer-events: inherit !important;
   cursor: pointer !important;
@@ -29,6 +26,13 @@ a.orange {
 #heading {
   margin-top: 1.7em;
 }
+
+@media only screen and (max-width: 768px) {
+  #heading {
+    margin-top: .7em;
+  }
+}
+
 p.nav-links {
   margin-bottom: 1.5em;
 }
@@ -49,8 +53,4 @@ p.nav-links {
 
 .result .name {
   font-weight: 400;
-}
-
-.houston-delete-all {
-  display: none;
 }
