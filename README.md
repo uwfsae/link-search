@@ -7,3 +7,5 @@ Clone the repository. In topmost directory, run the ```meteor --settings=setting
 
 #### Configuring Heroku
 To launch on Heroku, you'll first need to find a custom buildpack for Meteor.
+
+[![Link Instant Search](http://i.imgur.com/HnJuryz.jpg)](https://github.com/uwfsae/link-search)
