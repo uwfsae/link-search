@@ -1,7 +1,12 @@
-/** Constants **/
-AppName = "UW FSAE Go Links";
-
 /** Setup **/
+
+// Set HTML Title
+Meteor.startup(function () {
+  Meteor.autorun(function () {
+    document.title = Meteor.settings.public.appName;
+  })
+});
+// Search Options
 var options = {
   keepHistory: 1000 * 60, // 1 minute
   localSearch: false
@@ -13,7 +18,7 @@ LinkSearch = new SearchSource('links', fields, options);
 
 /** Global Helpers **/
 Template.registerHelper("AppName", function () {
-    return AppName;
+    return Meteor.settings.public.appName;
 });
 
 Template.Home.rendered = Template.Add.rendered = function () {
